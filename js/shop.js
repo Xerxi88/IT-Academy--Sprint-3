@@ -71,6 +71,7 @@ var cart = [];
 
 var total = 0;
 
+let cuenta=document.querySelector("#count_product");
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
@@ -78,12 +79,15 @@ function buy(id) {
      // 2. Add found product to the cartList array
     if(!comp){
         cartList.push(id);
+        cuenta.innerHTML=cartList.length;
     }
 }
 
 // Exercise 2
 function cleanCart() {
     cartList=[];
+    cuenta.innerHTML=0;
+    
 }
 
 // Exercise 3
