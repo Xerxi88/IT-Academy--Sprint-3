@@ -75,18 +75,15 @@ var total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     const comp=cartList.some(a=>a==id);
-    alert(comp);
      // 2. Add found product to the cartList array
     if(!comp){
         cartList.push(id);
     }
-    alert(cartList);
 }
-//Dejo puestos los alerts para visualizar que el codigo se ejecuta correctamente, en los siguientes commits los eliminaré.
 
 // Exercise 2
 function cleanCart() {
-
+    cartList=[];
 }
 
 // Exercise 3
