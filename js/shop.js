@@ -75,24 +75,29 @@ let cuenta=document.querySelector("#count_product");
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
-    const comp=cartList.some(a=>a==id);
+    let buscar=products.find(products=>products.id==id)
      // 2. Add found product to the cartList array
-    if(!comp){
-        cartList.push(id);
+        cartList.push(buscar);
         cuenta.innerHTML=cartList.length;
-    }
-}
+        calculateTotal(buscar.price);
+       
+     }
 
 // Exercise 2
 function cleanCart() {
     cartList=[];
     cuenta.innerHTML=0;
-    
+    total=0;
 }
 
 // Exercise 3
-function calculateTotal() {
+function calculateTotal(precio) {
+
     // Calculate total price of the cart using the "cartList" array
+   let sumar=precio;
+    total+=sumar;
+    console.log(total);
+    
 }
 
 // Exercise 4
