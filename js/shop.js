@@ -94,8 +94,7 @@ function cleanCart() {
 function calculateTotal(precio) {
 
     // Calculate total price of the cart using the "cartList" array
-   let sumar=precio;
-    total+=sumar;
+    total+=precio;
     console.log(total);
     
 }
