@@ -72,15 +72,16 @@ var cart = [];
 var total = 0;
 
 let cuenta=document.querySelector("#count_product");
+
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     let buscar=products.find(products=>products.id==id)
-     // 2. Add found product to the cartList array
+    //  // 2. Add found product to the cartList array
         cartList.push(buscar);
         cuenta.innerHTML=cartList.length;
-        calculateTotal(buscar.price);
-       
+        calculateTotal(buscar.price); 
+        generateCart(buscar);
      }
 
 // Exercise 2
@@ -89,7 +90,6 @@ function cleanCart() {
     cuenta.innerHTML=0;
     total=0;
 }
-
 // Exercise 3
 function calculateTotal(precio) {
 
@@ -98,12 +98,30 @@ function calculateTotal(precio) {
     console.log(total);
     
 }
-
 // Exercise 4
-function generateCart() {
+function generateCart(producto) {
+  
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+    let comp=cart.some(a=>a.id==producto.id);
+    console.log(comp);
+     if(!comp){
+       cart.push(producto);
+       producto.quantity=1;
+       alert("producto subido al carro");
+    }else{
+        producto.quantity++;
+        alert(producto.quantity);
+    }
 }
+// function agregar(){
+//     let escrito=document.querySelector("input").value.trim();
+//     let escritoBien=escrito.substring(0,1).toUpperCase() + escrito.substring(1).toLowerCase();
+//     let existe=reyes.some(a=>a==escritoBien);
+//     if(!existe){
+//         reyes.push(escritoBien);
+//         mostrar();
+//     }}
 
 // Exercise 5
 function applyPromotionsCart() {
