@@ -115,15 +115,6 @@ function generateCart(producto) {
         
     }
 }
-// function agregar(){
-//     let escrito=document.querySelector("input").value.trim();
-//     let escritoBien=escrito.substring(0,1).toUpperCase() + escrito.substring(1).toLowerCase();
-//     let existe=reyes.some(a=>a==escritoBien);
-//     if(!existe){
-//         reyes.push(escritoBien);
-//         mostrar();
-//     }}
-
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
