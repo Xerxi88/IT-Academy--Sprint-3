@@ -106,12 +106,13 @@ function generateCart(producto) {
     let comp=cart.some(a=>a.id==producto.id);
     console.log(comp);
      if(!comp){
+       console.log("Se agrega objeto nuevo al carro");
        cart.push(producto);
        producto.quantity=1;
-       alert("producto subido al carro");
     }else{
-        producto.quantity++;
-        alert(producto.quantity);
+       console.log("Se agrega objeto repetido y se le suma 1 unidad");
+       producto.quantity++;
+        
     }
 }
 // function agregar(){
