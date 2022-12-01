@@ -73,6 +73,7 @@ var total = 0;
 
 let cuenta=document.querySelector("#count_product");
 
+
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
@@ -87,6 +88,7 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     cartList=[];
+    cart=[];
     cuenta.innerHTML=0;
     total=0;
 }
@@ -111,14 +113,22 @@ function generateCart(producto) {
        producto.quantity=1;
     }else{
        console.log("Se agrega objeto repetido y se le suma 1 unidad");
-       producto.quantity++;
-        
+       producto.quantity++; 
     }
+    applyPromotionsCart(producto);
 }
 // Exercise 5
-function applyPromotionsCart() {
+function applyPromotionsCart(producto) {
     // Apply promotions to each item in the array "cart"
+    if(producto.id==1 && producto.quantity>=3){
+        console.log("Descuento activado, aceite a 10€ la unidad");
+        producto.subtotalWithDiscount = producto.quantity*10;
+    }else if(producto.id==3 && producto.quantity>=10){
+        console.log("Descuento activado, ingredintes para pastel rebajado al 66%");
+        producto.subtotalWithDiscount = producto.price*0.66*producto.quantity;
+    }
 }
+
 
 // Exercise 6
 function printCart() {
