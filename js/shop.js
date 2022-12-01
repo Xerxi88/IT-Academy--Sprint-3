@@ -81,8 +81,9 @@ function buy(id) {
     //  // 2. Add found product to the cartList array
         cartList.push(buscar);
         cuenta.innerHTML=cartList.length;
-        calculateTotal(buscar.price); 
         generateCart(buscar);
+        calculateTotal(buscar); 
+        
      }
 
 // Exercise 2
@@ -94,11 +95,14 @@ function cleanCart() {
 }
 // Exercise 3
 function calculateTotal(precio) {
-
+    console.log(precio)
     // Calculate total price of the cart using the "cartList" array
-    total+=precio;
-    console.log(total);
-    
+      if (precio.subtotalWithDiscount == undefined) {
+        total += precio.price;
+      } else {
+        total += precio.subtotalWithDiscount;
+      }
+    console.log(total); 
 }
 // Exercise 4
 function generateCart(producto) {
