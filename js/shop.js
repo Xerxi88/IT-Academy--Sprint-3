@@ -82,7 +82,7 @@ function buy(id) {
         cartList.push(buscar);
         cuenta.innerHTML=cartList.length;
         generateCart(buscar);
-        calculateTotal(buscar); 
+        calculateTotal(); 
         
      }
 
@@ -94,15 +94,17 @@ function cleanCart() {
     total=0;
 }
 // Exercise 3
-function calculateTotal(precio) {
-    console.log(precio)
+function calculateTotal() {
+    total=0;
+    for(objeto of cart){
     // Calculate total price of the cart using the "cartList" array
-      if (precio.subtotalWithDiscount == undefined) {
-        total += precio.price;
+      if (objeto.subtotalWithDiscount == undefined) {
+        total += objeto.price*objeto.quantity;
       } else {
-        total += precio.subtotalWithDiscount;
-      }
+        total += objeto.subtotalWithDiscount;
+      }}
     console.log(total); 
+    console.log(cart);
 }
 // Exercise 4
 function generateCart(producto) {
