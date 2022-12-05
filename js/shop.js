@@ -71,27 +71,25 @@ var cart = [];
 
 var total = 0;
 
-let cuenta=document.querySelector("#count_product");
-
-
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     let buscar=products.find(products=>products.id==id)
     //  // 2. Add found product to the cartList array
         cartList.push(buscar);
-        cuenta.innerHTML=cartList.length;
         generateCart(buscar);
         calculateTotal(); 
-        
+        printCart();
      }
 
 // Exercise 2
 function cleanCart() {
     cartList=[];
     cart=[];
-    cuenta.innerHTML=0;
+    document.getElementById("count_product").innerHTML=0;
     total=0;
+    document.querySelector(".titulo").innerHTML = "Tu carrito esta vacío";
+    document.querySelector(".list").innerHTML = ``;
 }
 // Exercise 3
 function calculateTotal() {
@@ -103,8 +101,6 @@ function calculateTotal() {
       } else {
         total += objeto.subtotalWithDiscount;
       }}
-    console.log(total); 
-    console.log(cart);
 }
 // Exercise 4
 function generateCart(producto) {
@@ -112,13 +108,11 @@ function generateCart(producto) {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     let comp=cart.some(a=>a.id==producto.id);
-    console.log(comp);
-     if(!comp){
-       console.log("Se agrega objeto nuevo al carro");
+
+    if(!comp){
        cart.push(producto);
        producto.quantity=1;
     }else{
-       console.log("Se agrega objeto repetido y se le suma 1 unidad");
        producto.quantity++; 
     }
     applyPromotionsCart(producto);
@@ -127,10 +121,8 @@ function generateCart(producto) {
 function applyPromotionsCart(producto) {
     // Apply promotions to each item in the array "cart"
     if(producto.id==1 && producto.quantity>=3){
-        console.log("Descuento activado, aceite a 10€ la unidad");
         producto.subtotalWithDiscount = producto.quantity*10;
     }else if(producto.id==3 && producto.quantity>=10){
-        console.log("Descuento activado, ingredintes para pastel rebajado al 66%");
         producto.subtotalWithDiscount = producto.price*0.66*producto.quantity;
     }
 }
@@ -139,6 +131,40 @@ function applyPromotionsCart(producto) {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+    document.getElementById("count_product").innerHTML = `${cartList.length}`;
+    document.querySelector(".titulo").textContent = "Tu carrito";
+    document.querySelector(".list").innerHTML = `<table class="table mt-3 me-3">
+                                                 <thead>
+                                                   <tr>
+                                                     <th scope="col">Products</th>
+                                                     <th scope="col">Price</th>
+                                                     <th scope="col">Qty.</th>
+                                                     <th scope="col">Total</th>
+                                                   </tr>
+                                                 </thead>
+                                                 <tbody>
+                                                 </tbody>
+                                               </table>
+                                               <div class="text-center fs-2">Total:€${total.toFixed(2)}</div>`;
+    for (objeto of cart) {
+      if (objeto.subtotalWithDiscount == undefined) {
+        document.querySelector("tbody").insertAdjacentHTML("beforeend", 
+            `<tr>
+                <td>${objeto.name}</td>
+                <td>${objeto.price}€</td>
+                <td>${objeto.quantity}</td>
+                <td>${objeto.price*objeto.quantity}€</td>
+            <tr>`)
+      } else {
+        document.querySelector("tbody").insertAdjacentHTML("beforeend", 
+            `<tr>
+              <td>${objeto.name}</td>
+              <td>${objeto.price}€</td>
+              <td>${objeto.quantity}</td>
+              <td>${objeto.subtotalWithDiscount.toFixed(2)}€</td>
+            <tr>`)
+      }
+    }
 }
 
 
