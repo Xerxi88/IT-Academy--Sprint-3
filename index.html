@@ -14,12 +14,13 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <!-- Core theme CSS (includes Bootstrap)-->
+		<link rel="stylesheet" href="/css/styles.css">
     </head>
     <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
         <!-- Navigation-->
-		<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="navbar-example2">
+		<nav class="navbar py-3 py-lg-0 navbar-light fondo navbar-expand-lg" id="navbar-example2">
 			 <div class="container d-flex">
-				 <a class="navbar-brand" href="#!">ShopNow</a>
+				 <a class="navbar-brand text-white" href="#!">ShopNow</a>
 				 <div class="d-flex flex-row order-lg-last align-items-center">
 				 
 					 <button type="button" class="navbar-toggler order-last collapsed" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,8 +28,8 @@
 					 </button>
 					 <ul class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center">
 						 <li class="dropdown search-dropdown nav-item py-lg-3">						 
-							 <a href="javascript:void(0)" class="btn btn-outline-dark flex-center" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()" data-bs-auto-close="outside">
-								<i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge bg-dark text-white ms-1 rounded-pill" id="count_product">0</span>
+							 <a href="javascript:void(0)" class="btn btn-outline-dark flex-center text-white" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="open_modal()" data-bs-auto-close="outside">
+								<i class="fas fa-shopping-cart me-1"></i> Cart <span class="badge bg-light text-info ms-1 rounded-pill" id="count_product">0</span>
 							 </a>
 						 </li>
 					 </ul>
@@ -39,13 +40,13 @@
 
 					 <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
 						 <li class="nav-item">
-						  <a class="nav-link hovitor" href="#grocery"><i class="fas fa-shopping-basket"></i> Grocery</a>
+						  <a class="nav-link text-white" href="#grocery"><i class="fas fa-shopping-basket"></i> Grocery</a>
 						</li>
 						<li class="nav-item">
-						  <a class="nav-link" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
+						  <a class="nav-link text-white" href="#beauty"><i class="fas fa-heart"></i> Beauty</a>
 						</li>
 						<li class="nav-item">
-						  <a class="nav-link" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
+						  <a class="nav-link text-white" href="#clothes"><i class="fas fa-tshirt"></i> Clothes</a>
 						</li>
 
 					 </ul>
@@ -58,54 +59,62 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+                    <p class="lead fw-normal text-white-50 mb-0 animation2 text-center">
+						Take advantage of today's offers!</p>
                 </div>
             </div>
         </header>
 		<!-- Section-->
 		<section class="pt-5" id="grocery">
-			<h2 class="text-center"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
+			<h2 class="text-center bg-warning text-white"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 					<div class="col mb-5">
-						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+						<div class="card h-100 limite">
+							<img class="card-img-top" src="./images/aceite.png" alt="aceite" height="225px"/>
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Cooking Oil</h5>
-									$10.5
+									<h5 class="col-8 fw-bolder bg-warning rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Cooking Oil</h5>
+									<h5 class="fw-bolder">Price</h5>
+									<div>$10.5</div>
+									<div class="animation">10€*</div>
+									<small class="small1">*if you buy more than 2 units</small>
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(1)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(1)" class="btn btn-outline-warning">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/pasta.jpg" alt="pasta" height="225px" />
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Pasta</h5>
-									$6.25
+									<h5 class="col-8 fw-bolder bg-warning rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Pasta</h5>
+									<h5 class="fw-bolder">Price</h5>
+									<div>$6.25</div>
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(2)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(2)" class="btn btn-outline-warning">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
-						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
-							<div class="card-body p-4">
+						<div class="card h-100 limite">
+							<img class="card-img-top" src="./images/cupcakes.jpg" alt="cupcakes" height="225px" />
+							<div class="card-body p-4 ">
 								<div class="text-center">
-									<h5 class="fw-bolder">Instant cupcake mixture</h5>
-									$5
+									<h5 class="col-10 fw-bolder bg-warning rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Instant cupcake mixture</h5>
+									<h5 class="fw-bolder">Price</h5>
+									<div>$5</div>
+									<div class="animation">66% Off*</div>
+									<small class="small1">*from 10 units</small>
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(3)" class="btn btn-outline-primary">Add tow cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(3)" class="btn btn-outline-warning">Add tow cart</button></div>
 							</div>
 						</div>
 					</div>
@@ -114,48 +123,51 @@
 			</div>
 		</section>
 		<section class="pt-5" id="beauty">
-			 <h2 class="text-center"><i class="fas fa-heart pe-3"></i>Beauty</h2>
+			 <h2 class="text-center bg-danger text-white"><i class="fas fa-heart pe-3"></i>Beauty</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/Allin1.jpg" alt="..." height="225px"/>
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">All-in-1</h5>
+									<h5 class="col-8 fw-bolder bg-danger text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">All-in-1</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$260
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(4)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(4)" class="btn btn-outline-danger">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/Zero.jpg" alt="..." height="225px"/>
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Zero makeup kit</h5>
+									<h5 class="col-8 fw-bolder bg-danger text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Zero makeup kit</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$20.5
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(5)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(5)" class="btn btn-outline-danger">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/lips.jpg" alt="..." height="225px"/>
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Lip tints</h5>
+									<h5 class="col-8 fw-bolder bg-danger text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Lip tints</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$12.75
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(6)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(6)" class="btn btn-outline-danger">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
@@ -164,48 +176,51 @@
 			</div>
 		</section>
 		<section class="pt-5" id="clothes">
-			 <h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
+			 <h2 class="text-center bg-success text-white"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/vestido.jpg" alt="..." height="225px" />
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Lawn dress</h5>
+									<h5 class="col-8 fw-bolder bg-success text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Lawn dress</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$15
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(7)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(7)" class="btn btn-outline-success">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/sueter.jpg" alt="..." height="225px"/>
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Lawn-chiffon combo</h5>
+									<h5 class="col-12 fw-bolder bg-success text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Ugly christmas sweater</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$19.99
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(8)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(8)" class="btn btn-outline-success">Add to cart</button></div>
 							</div>
 						</div>
 					</div>
 					<div class="col mb-5">
 						<div class="card h-100">
-							<img class="card-img-top" src="./images/product.svg" alt="..." />
+							<img class="card-img-top" src="./images/niña.jpg" alt="..." height="225px" />
 							<div class="card-body p-4">
 								<div class="text-center">
-									<h5 class="fw-bolder">Toddler Frock</h5>
+									<h5 class="col-8 fw-bolder bg-success text-white rounded position-absolute top-50 start-50 translate-middle ps-2 pe-2">Toddler Frock</h5>
+									<h5 class="fw-bolder">Price</h5>
 									$9.99
 								</div>
 							</div>
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center"><button type="button" onclick="buy(9)" class="btn btn-outline-primary">Add to cart</button></div>
+								<div class="text-center"><button type="button" onclick="buy(9)" class="btn btn-outline-success">Add to cart</button></div>
 							</div>
 						</div>
 					</div>

@@ -108,13 +108,14 @@ function generateCart(producto) {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     let comp=cart.some(a=>a.id==producto.id);
-
+    
     if(!comp){
        cart.push(producto);
        producto.quantity=1;
     }else{
        producto.quantity++; 
     }
+    
     applyPromotionsCart(producto);
 }
 // Exercise 5
@@ -140,12 +141,13 @@ function printCart() {
                                                      <th scope="col">Price</th>
                                                      <th scope="col">Qty.</th>
                                                      <th scope="col">Total</th>
+                                                     <th scope="col"></th>
                                                    </tr>
                                                  </thead>
                                                  <tbody>
                                                  </tbody>
                                                </table>
-                                               <div class="text-center fs-2">Total:€${total.toFixed(2)}</div>`;
+                                               <div class="text-center fs-2">Total:${total.toFixed(2)}€</div>`;
     for (objeto of cart) {
       if (objeto.subtotalWithDiscount == undefined) {
         document.querySelector("tbody").insertAdjacentHTML("beforeend", 
@@ -154,6 +156,7 @@ function printCart() {
                 <td>${objeto.price}€</td>
                 <td>${objeto.quantity}</td>
                 <td>${objeto.price*objeto.quantity}€</td>
+                <td><button class="btn btn-danger" onclick=removeFromCart(${objeto.id})>-</button></td>
             <tr>`)
       } else {
         document.querySelector("tbody").insertAdjacentHTML("beforeend", 
@@ -162,6 +165,7 @@ function printCart() {
               <td>${objeto.price}€</td>
               <td>${objeto.quantity}</td>
               <td>${objeto.subtotalWithDiscount.toFixed(2)}€</td>
+              <td><button class="btn btn-danger" onclick=removeFromCart(${objeto.id})>-</button></td>
             <tr>`)
       }
     }
@@ -170,17 +174,50 @@ function printCart() {
 
 // ** Nivell II **
 
-// Exercise 7
-function addToCart(id) {
-    // Refactor previous code in order to simplify it 
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array or update its quantity in case it has been added previously.
-}
 
 // Exercise 8
+
+function addToCart(id){
+
+    // let buscar=products.find(products=>products.id==id);
+    // let posicion= cart.indexOf(buscar);
+
+    //     if(posicion==-1){
+    //        cart.push(products);
+    //        products.quantity=1;
+    //     }else{
+    //        products.quantity++; 
+    //     }
+    //     applyPromotionsCart(products);
+    //     calculateTotal(); 
+    //     printCart();
+}
+
+
+// Exercise 9
 function removeFromCart(id) {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cartList array
+
+    let transf=cartList.find(products=>products.id==id)
+    const buscar=cartList.indexOf(transf);
+    cartList.splice(buscar,1);
+    transf.quantity-=1;
+    if(transf.quantity==0){
+        const findCart=cart.indexOf(transf);
+        cart.splice(findCart,1);
+    }
+    if(transf.id==1){
+        transf.subtotalWithDiscount=transf.quantity*10;
+        if(transf.quantity<=2&& transf.id==1){
+        delete transf.subtotalWithDiscount;
+        }}
+    else if(transf.id==3){
+        transf.subtotalWithDiscount=transf.quantity*transf.price*0.66;
+        if(transf.quantity<=9 && transf.id==3){
+        delete transf.subtotalWithDiscount;
+        }
+    }
+    calculateTotal();
+    printCart();
 }
 
 function open_modal(){
